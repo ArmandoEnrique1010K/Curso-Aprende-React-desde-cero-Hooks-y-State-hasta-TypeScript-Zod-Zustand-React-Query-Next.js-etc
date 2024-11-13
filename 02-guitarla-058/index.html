@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Establece el titulo del documento HTML, se aplica a todas las paginas HTML -->
+  <title>GuitarLa - React</title>
+  <!-- Importa las fuentes de Google Fonts, recuerda que se aplica a todo el proyecto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!--
+        COMANDOS PARA CREAR EL PROYECTO
+
+        cd <Ruta de la carpeta> ---------- Establece el directorio a la carpeta especificada
+        
+        npm create vite@latest  ---------- Crea un proyecto con la ultima versión de vite (en el caso de instalar una dependencia, escribre "y")
+      
+        Project name: 02-guitarla ---------- Nombre del proyecto
+        
+        Framework: React -------- Selecciona el framework de React
+
+        Variant: JavaScript + SWC ------- Esta opción contiene el nuevo compilador más rapido y estable
+
+        cd 02-guitarla -------- Ve a la carpeta del proyecto
+
+        npm install --------- instala las dependencias que se encuentra en package.json
+
+        npm run dev --------- ejecuta el proyecto, accede a la url para visualizar la aplicación
+
+        En el archivo package.json se tienen las dependencias de desarrollo que se van a ir instalando a lo largo del proyecto.
+
+        /* */
+
+        ESTRUCTURA DEL PROYECTO
+
+        Carpeta public: Archivos de acceso publico
+
+        Carpeta src: Contiene todo el codigo fuente del proyecto como los componentes
+
+        - eslintrc.config.js: incluye las reglas integradas de sintaxis del codigo javascript, sirve para detectar problemas y errores.
+
+        - gitignore: contiene una lista de archivos que se van a ignorar cuando se sube el proyecto en git.
+        
+        - index.html: Ten en cuenta que React es una libreria de JS, todo el codigo se inyecta en el elemento <div id="root"></div>. Se puede colocar enlaces de fuentes, archivos CSS o enlace de Bootstrap para los estilos.
+
+        - package.json: versiones de las dependencias, al agregar más dependencias se colocan en dependencias de proyecto (depenedncies) o dependencias de desarrollo (devDependencies).
+
+        - README.md: archivo que se agrega a github (esta escrito en formato markdown)
+        
+        - vite.config.js: configuraciones por defecto de vite.
+
+  -->
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
