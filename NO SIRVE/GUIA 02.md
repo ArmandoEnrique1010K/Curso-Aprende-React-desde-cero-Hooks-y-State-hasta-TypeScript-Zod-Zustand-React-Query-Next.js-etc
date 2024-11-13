@@ -86,10 +86,6 @@ Estructura del proyecto
   
   - `vite.config.js`: configuraciones por defecto de vite.
 
-
-
-
-
 ## 59 - Introducción a los React Hooks
 
 ### ¿Que son los React Hooks o Hooks?
@@ -234,7 +230,3 @@ useEffect(() => {
     }
 }, [auth])
 ```
-
-
-
-
