@@ -83,6 +83,13 @@
         Define una etiqueta <script></script> antes de la etiqueta de cierre </body>, reemplaza el valor del atributo src con la dirección del archivo javascript.
 
         -->
+
+    <!-- El problema en el desarrollo web con HTML, CSS y JS es que se llenaba de archivos, varias importaciones de Script, eso se soluciona con los modulos de ECMASCRIPT. En este caso primero se importa las funciones y luego el otro archivo para que tenga acceso a las funciones -->
+    <!-- <script src="js/funciones.js"></script> -->
+
+    <!-- El atributo type="module" habilita la función de importar en el archivo JS, de lo contrario ocurrira un error "Cannon use import statement outside a module" -->
+    <!-- <script src="js/24.js" type="module"></script> -->
+
     <script src="js/27.js"></script>
 </body>
 
