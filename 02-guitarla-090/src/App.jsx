@@ -1,12 +1,27 @@
+// Se eliminan las importaciones innecesarias
+
 import { Header } from "./components/Header";
 import { Guitar } from "./components/Guitar";
 import { useCart } from "./hooks/useCart";
 
 function App() {
+
+  // Llama al hook personalizado, desestructura el objeto devuelto por el hook
+  // const { auth, carrito } = useCart();
+  // console.log(carrito);
+
+  // Corta todo el contenido desde las definiciones de las funciones initialCart hasta clearCart y pegalo dentro de la función principal de useCart
+
+  // Importa y llama al hook personalizado useCart
+
+  // Tambien se incluyen los states derivados
   const { data, cart, addToCart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart, isEmpty, cartTotal } = useCart();
+
+  // Toda la logica del componente fue movido al hook useCart, todo funciona correctamente
 
   return (
     <>
+      {/* Pasa los statres derivados al componente Header */}
       <Header cart={cart} removeFromCart={removeFromCart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} clearCart={clearCart} isEmpty={isEmpty} cartTotal={cartTotal} />
 
       <main className="container-xl mt-5">
@@ -18,6 +33,8 @@ function App() {
               <Guitar
                 key={guitar.id}
                 guitar={guitar}
+                // No se utiliza la prop cart, por lo que se elimina
+                // cart={cart}
                 addToCart={addToCart}
               />
             ))

@@ -1,3 +1,4 @@
+// Elimina la prop cart, no se recibe
 export function Guitar({ guitar, addToCart }) {
 
     const { id, name, image, description, price } = guitar
