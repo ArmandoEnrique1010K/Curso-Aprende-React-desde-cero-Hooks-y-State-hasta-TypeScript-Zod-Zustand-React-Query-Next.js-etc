@@ -1,11 +1,18 @@
 import MenuItem from './components/MenuItem';
 import OrderContents from './components/OrderContents';
+
 import { menuItems } from './data/db'
 import useOrder from './hooks/useOrder';
 
+
 function App() {
 
+  // Llama al hook useOrder
+
+  // Puedes colocar el cursor sobre la función addItem para ver el tipo de dato que se recibe
   const { order, addItem } = useOrder();
+
+  // Al importar el hook personalizado, no se tiene en cuenta el orden de las funciones y states
 
   return (
     <>
@@ -26,9 +33,14 @@ function App() {
               />
             ))}
           </div>
+
         </div>
 
+        {/* Añade unos estilos al div contenedor del consumo, como para mostrar un borde */}
         <div className='border border-dashed border-slate-300 p-5 rounded-lg space-y-10'>
+          {/* <h2>Consumo</h2> */}
+
+          {/* Llama al componente OrderContents y pasa order como prop. Marca un error porque no se tiene un type asignado en OrderContents */}
           <OrderContents order={order} />
         </div>
 
