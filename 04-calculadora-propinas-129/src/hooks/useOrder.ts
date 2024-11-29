@@ -5,6 +5,8 @@ export default function useOrder() {
 
     const [order, setOrder] = useState<OrderItem[]>([])
 
+    const [tip, setTip] = useState(0)
+
     const addItem = (item: MenuItem) => {
         const itemExist = order.find(orderItem => orderItem.id === item.id);
 
@@ -20,8 +22,27 @@ export default function useOrder() {
             setOrder([...order, newItem])
         }
     }
+
+    const removeItem = (id: MenuItem['id']) => {
+        setOrder(order.filter(item => item.id !== id))
+    }
+
+    // Función para reiniciar (guardar) la orden
+    const placeOrder = () => {
+        // console.log('Guardando...')
+
+        // Setea la orden y la propina a su valores iniciales
+        setOrder([])
+        setTip(0)
+    }
+
     return {
         order,
-        addItem
+        tip,
+        setTip,
+        addItem,
+        removeItem,
+        // Exporta la función placeOrder
+        placeOrder
     }
 }
