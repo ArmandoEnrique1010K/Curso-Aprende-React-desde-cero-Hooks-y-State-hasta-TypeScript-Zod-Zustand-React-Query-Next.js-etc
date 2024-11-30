@@ -16,6 +16,7 @@ createRoot(document.getElementById('root')!).render(
       TypeScript + SWC
       cd calorie-tracker
       npm install
+      npm run dev <-- ejecuta el proyecto
     */}
 
     {/* LIMPIEZA DEL PROYECTO */}
@@ -28,8 +29,9 @@ createRoot(document.getElementById('root')!).render(
     {/* Escribe los siguientes comandos */}
 
     {/* npm i -D tailwindcss postcss autoprefixer */}
-    {/* npm tailwindcss init -p */}
+    {/* npx tailwindcss init -p */}
 
-    {/* CONTINUA EN 0:38 */}
+    {/* Recordar que el ultimo comando genera el archivo postcss.config.js. Realiza una configuración en el archivo tailwind.config.js */}
+
   </StrictMode>,
 )
