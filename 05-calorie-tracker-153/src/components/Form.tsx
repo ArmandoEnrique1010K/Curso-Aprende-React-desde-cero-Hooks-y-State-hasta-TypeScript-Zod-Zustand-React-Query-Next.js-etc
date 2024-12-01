@@ -1,40 +1,29 @@
-import { ChangeEvent, Dispatch, FormEvent, useState, useEffect } from "react";
+import { ChangeEvent, Dispatch, FormEvent, useState } from "react";
+
+// Importa la dependencia de uuid
 import { v4 as uuidv4 } from "uuid";
+
 import { categories } from "../data/categories";
 import { Activity } from "../types";
-import { ActivityActions, ActivityState } from "../reducers/activity-reducer";
+import { ActivityActions } from "../reducers/activity-reducer";
 
 type FormProps = {
     dispatch: Dispatch<ActivityActions>
-    // Añade el type para el state (importalo desde activity-reducer.ts)
-    state: ActivityState
 }
 
+// Asignale el tipo Activity y modifica el type Activity
 const initialState: Activity = {
+    // Llama a la función uuidv4() para generar un ID unico
+    // TypeScript infiere que el id es de tipo string
     id: uuidv4(),
     category: 1,
     name: '',
     calories: 0
 }
 
-// No olvidar recibir el state como prop
-export default function Form({ dispatch, state }: FormProps) {
+export default function Form({ dispatch }: FormProps) {
 
     const [activity, setActivity] = useState<Activity>(initialState)
-
-    // Efecto secundario que depende de state.activeId
-    useEffect(() => {
-        // Se ejecuta todo el tiempo dependiendo de state.activeId
-        if (state.activeId) {
-            // Demuestra que se obtiene el id de la actividad seleccionada
-            // console.log('Ya hay algo en activeId...')
-            // console.log(state.activeId)
-
-            // El metodo filter se utiliza para obtener 
-            // CONTINUA EN 3:30
-            const selectedActivity = state.activities.filter(stateActivity => stateActivity.id === state.activeId)
-        }
-    }, [state.activeId])
 
     const handleChange = (e: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>) => {
 
@@ -57,8 +46,10 @@ export default function Form({ dispatch, state }: FormProps) {
 
         dispatch({ type: 'save-activity', payload: { newActivity: activity } })
 
+        // Se guarda una copia de initialState
         setActivity({
             ...initialState,
+            // Reescribe un nuevo id
             id: uuidv4(),
         });
     }

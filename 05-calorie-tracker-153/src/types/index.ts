@@ -3,6 +3,7 @@ export type Category = {
     name: string
 }
 
+// Añade la propiedad id (tipo string)
 export type Activity = {
     id: string
     category: number,

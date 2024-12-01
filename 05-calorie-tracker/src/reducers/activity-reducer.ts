@@ -1,17 +1,22 @@
 import { Activity } from "../types"
 
 export type ActivityActions = {
-
     type: 'save-activity'
     payload: { newActivity: Activity }
+} | {
+    type: 'set-activeId'
+    payload: { id: Activity['id'] }
 }
 
-type ActivityState = {
+// Hacia falta exportar esto para utilizarlo en el componente Form.tsx
+export type ActivityState = {
     activities: Activity[]
+    activeId: Activity['id']
 }
 
 export const initialState: ActivityState = {
-    activities: []
+    activities: [],
+    activeId: ''
 }
 
 export const activityReducer = (
@@ -21,9 +26,18 @@ export const activityReducer = (
     if (action.type === 'save-activity') {
         return {
             ...state,
-            activities: [...state.activities, action.payload.newActivity]
+            activities: [
+                ...state.activities, action.payload.newActivity
+            ]
         }
     }
 
+    if (action.type === 'set-activeId')
+        return {
+            ...state,
+            activeId: action.payload.id
+        }
+
     return state
 }
+
