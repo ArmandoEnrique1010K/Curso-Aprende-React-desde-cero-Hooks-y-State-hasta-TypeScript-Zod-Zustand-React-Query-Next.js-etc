@@ -1,3 +1,4 @@
+/* Añade las directivas de TailwindCSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

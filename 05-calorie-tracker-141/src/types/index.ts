@@ -3,6 +3,7 @@ export type Category = {
     name: string
 }
 
+// Define un type para las cantidades
 export type Activity = {
     category: number,
     name: string

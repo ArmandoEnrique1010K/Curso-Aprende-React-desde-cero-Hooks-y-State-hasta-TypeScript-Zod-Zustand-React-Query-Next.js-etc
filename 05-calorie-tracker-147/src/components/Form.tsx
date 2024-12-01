@@ -1,18 +1,23 @@
 import { ChangeEvent, Dispatch, FormEvent, useState } from "react";
 import { categories } from "../data/categories";
 import { Activity } from "../types";
+
+// Se importa ActivityActions
 import { ActivityActions } from "../reducers/activity-reducer";
 
+// Define el type para las props, en este caso se va a utilizar el tipo de dato Dispach, en el Generic se pasa ActivityActions para la información de las acciones que se han creado
 type FormProps = {
     dispatch: Dispatch<ActivityActions>
 }
 
+// Puedes crear una variable para almacenar los valores iniciales del state de activity
 const initialState = {
     category: 1,
     name: '',
     calories: 0
 }
 
+// Recibe la función dispatch y se asigna el type FormProps
 export default function Form({ dispatch }: FormProps) {
 
     const [activity, setActivity] = useState<Activity>(initialState)
@@ -33,11 +38,23 @@ export default function Form({ dispatch }: FormProps) {
         return name.trim() !== '' && calories > 0;
     }
 
+    // Recuerda que la función se activa al enviar el formulario
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
+        // Aqui se tiene que disparar la acción, en este caso save-activity para guardar la actividad y requiere un payload
+
+        // El payload requiere un tipo Activity, en este caso el state de activity
         dispatch({ type: 'save-activity', payload: { newActivity: activity } })
 
+        // Reinicia los campos del formulario a sus valores iniciales
+        // setActivity({
+        //     category: 1,
+        //     name: '',
+        //     calories: 0
+        // })
+
+        // Establece la variable initialState (contiene los valores iniciales)
         setActivity(initialState);
     }
 
