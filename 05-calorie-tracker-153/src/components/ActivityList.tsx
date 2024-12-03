@@ -75,7 +75,7 @@ export default function ActivityList({ activities, dispatch }: ActivityListProps
                             {/* Puedes abrir React Developer Tools para revisar el id activo (componente App, hay un reducer que contiene activities y activeId). Luego de agregar una actividad haz clic en el icono de editar y veras que activeId toma el id de la actividad seleccionada */}
 
                             {/* Las clases h-8 y w-8 se utilizan para el tamaño del elemento a 32px */}
-                            <PencilSquareIcon className="h-8 w-8" />
+                            <PencilSquareIcon className="h-8 w-8 text-gray-800" />
                         </button>
                     </div>
                 </div>

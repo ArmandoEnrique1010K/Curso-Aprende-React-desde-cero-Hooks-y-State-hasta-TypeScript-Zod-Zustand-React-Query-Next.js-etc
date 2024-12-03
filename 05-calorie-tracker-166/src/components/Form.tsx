@@ -6,7 +6,6 @@ import { ActivityActions, ActivityState } from "../reducers/activity-reducer";
 
 type FormProps = {
     dispatch: Dispatch<ActivityActions>
-    // Añade el type para el state (importalo desde activity-reducer.ts)
     state: ActivityState
 }
 
@@ -17,22 +16,14 @@ const initialState: Activity = {
     calories: 0
 }
 
-// No olvidar recibir el state como prop
 export default function Form({ dispatch, state }: FormProps) {
 
     const [activity, setActivity] = useState<Activity>(initialState)
 
-    // Efecto secundario que depende de state.activeId
     useEffect(() => {
-        // Se ejecuta todo el tiempo dependiendo de state.activeId
         if (state.activeId) {
-            // Demuestra que se obtiene el id de la actividad seleccionada
-            // console.log('Ya hay algo en activeId...')
-            // console.log(state.activeId)
-
-            // El metodo filter se utiliza para obtener 
-            // CONTINUA EN 3:30
-            const selectedActivity = state.activities.filter(stateActivity => stateActivity.id === state.activeId)
+            const selectedActivity = state.activities.filter(stateActivity => stateActivity.id === state.activeId)[0]
+            setActivity(selectedActivity);
         }
     }, [state.activeId])
 
